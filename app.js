@@ -19,7 +19,7 @@ var mongoose = require('mongoose');
 // Set up mongoose connection
 //var dev_db_url = 'mongodb://localhost:27017/library'
 var dev_db_url = 'mongodb+srv://grayes:fakePassword20@cluster0-kiy04.mongodb.net/library?retryWrites=true&w=majority'
-var mongoDB = process.env.MONGODB_URI || dev_db_url;
+var mongoDB = process.env.MONGOLAB_ORANGE_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
