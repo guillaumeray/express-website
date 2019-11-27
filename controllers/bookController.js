@@ -25,7 +25,7 @@ exports.index = function(req, res) {
             Genre.countDocuments({}, callback);
         }
     }, function(err, results) {
-        res.render('index', { title: 'Local Library Home', error: err, data: results });
+        res.render('index', { title: 'Lola P, i love u !', error: err, data: results });
     });
 };
 
