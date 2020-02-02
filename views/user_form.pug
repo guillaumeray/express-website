@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1=title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='login') First Name:
+      input#login.form-control(type='text' placeholder='Login' name='login' required='true' value=(undefined===user ? '' : user.login) )
+      label(for='password') Family Name:
+      input#password.form-control(type='text' placeholder='Password' name='password' required='true' value=(undefined===user ? '' : user.password))
+      label(for='about_me') Family Name:
+      input#password.form-control(type='text' placeholder='About me' name='about_me' required='true' value=(undefined===user ? '' : user.about_me))
+    div.form-group
+      label Role:
+      div
+        for ro in role
+          div(style='display: inline; padding-right:10px;')
+            input.checkbox-input(type='checkbox', name='role', id=ro._id, value=ro._id, checked=ro.checked )
+            label(for=ro._id) #{role.name}
+    
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

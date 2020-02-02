@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  h1 User: #{user.name}
+  p #{user.date_of_birth} - #{user.date_of_death}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Opinions
+    
+    dl
+      each opinion in user_opinion
+        dt 
+          a(href=opinion.url) #{opinion.title}
+        dd #{opinion.content}
+
+      else
+        p This user has no opinions.
+        
+    hr
+    p
+    a(href=user.url+'/delete') Delete user

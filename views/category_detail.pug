@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1 Category: #{category.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Opinions
+    
+    dl
+      each opinion in category_opinions
+        dt 
+          a(href=opinion.url) #{opinion.title}
+        dd #{opinion.content}
+
+      else
+        p This category has no opinions

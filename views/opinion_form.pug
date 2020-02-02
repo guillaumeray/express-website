@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Title:
+      input#title.form-control(type='text', placeholder='Name of opinion' name='title' required='true' value=(undefined===opinion ? '' : opinion.title) )
+    div.form-group
+      label(for='user') User:
+      select#user.form-control(type='select' placeholder='Select user' name='user' required='true' )
+        for user in users
+          if opinion
+            //- Handle GET form, where opinion.user is an object, and POST form, where it is a string.
+            option(
+              value=user._id
+              selected=(
+                user._id.toString()==opinion.user._id
+                || user._id.toString()==opinion.user
+              ) ? 'selected' : false
+            ) #{user.name}
+          else
+            option(value=user._id) #{user.name}
+    div.form-group
+      label(for='content') Content:
+      textarea#content.form-control(type='textarea', placeholder='Content' name='content' rows='3' required='true') #{undefined===opinion ? '' : opinion.content}
+    div.form-group
+      label(for='isbn') ISBN:
+      input#isbn.form-control(type='text', placeholder='ISBN13' name='isbn' value=(undefined===opinion ? '' : opinion.isbn) required='true') 
+    div.form-group
+      label Category:
+      div
+        for category in categorys
+          div(style='display: inline; padding-right:10px;')
+            input.checkbox-input(type='checkbox', name='category', id=category._id, value=category._id, checked=category.checked )
+            label(for=category._id) #{category.name}
+    button.btn.btn-primary(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg

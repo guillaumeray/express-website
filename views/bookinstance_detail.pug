@@ -2,19 +2,19 @@ extends layout
 
 block content
 
-  h1 ID: #{bookinstance._id}
+  h1 ID: #{opinioninstance._id}
   
   p #[strong Title:] 
-    a(href=bookinstance.book.url) #{bookinstance.book.title}
-  p #[strong Imprint:] #{bookinstance.imprint}
+    a(href=opinioninstance.opinion.url) #{opinioninstance.opinion.title}
+  p #[strong Imprint:] #{opinioninstance.imprint}
 
   p #[strong Status:] 
-    if bookinstance.status=='Available'
-      span.text-success #{bookinstance.status}
-    else if bookinstance.status=='Maintenance'
-      span.text-danger #{bookinstance.status}
+    if opinioninstance.status=='Available'
+      span.text-success #{opinioninstance.status}
+    else if opinioninstance.status=='Maintenance'
+      span.text-danger #{opinioninstance.status}
     else
-      span.text-warning #{bookinstance.status} 
+      span.text-warning #{opinioninstance.status} 
       
-  if bookinstance.status!='Available'
-    p #[strong Due back:] #{bookinstance.due_back_formatted}
+  if opinioninstance.status!='Available'
+    p #[strong Due back:] #{opinioninstance.due_back_formatted}

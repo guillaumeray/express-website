@@ -15,25 +15,25 @@ html(lang='en')
           block sidebar
             ul(class='sidebar-nav')
               li 
-                a(href='/catalog') Home
+                a(href='/') Home
               li 
-                a(href='/catalog/books') All books
+                a(href='/opinion') All opinion
               li 
-                a(href='/catalog/authors') All authors
+                a(href='/users') All users
               li 
-                a(href='/catalog/genres') All genres
+                a(href='/categorys') All category
               li 
-                a(href='/catalog/bookinstances') All book-instances
+                a(href='/admin/roles') All roles
               li 
                 hr
               li 
-                a(href='/catalog/author/create') Create new author
+                a(href='/user/create') Create new user
               li 
-                a(href='/catalog/genre/create') Create new genre
+                a(href='/category/create') Create new category
               li 
-                a(href='/catalog/book/create') Create new book
+                a(href='/opinion/create') Create new opinion
               li 
-                a(href='/catalog/bookinstance/create') Create new book instance (copy)
-                
+                a(href='/admin/role/create') Create new role
+
         div(class='col-sm-10')
           block content

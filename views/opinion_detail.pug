@@ -1,22 +1,21 @@
 extends layout
 
 block content
-  h1 Title: #{book.title}
+  h1 Title: #{opinion.title}
   
-  p #[strong Author:] 
-    a(href=book.author.url) #{book.author.name}
-  p #[strong Summary:] #{book.summary}
-  p #[strong ISBN:] #{book.isbn}
-  p #[strong Genre:]&nbsp;
-    each val, index in book.genre
+  p #[strong User:] 
+    a(href=opinion.user.url) #{opinion.user.name}
+  p #[strong Content:] #{opinion.content}
+  p #[strong Category:]&nbsp;
+    each val, index in opinion.category
       a(href=val.url) #{val.name}
-      if index < book.genre.length - 1
+      if index < opinion.category.length - 1
         |, 
   
   div(style='margin-left:20px;margin-top:20px')
     h4 Copies
     
-    each val in book_instances
+    each val in opinion_instances
       hr
       if val.status=='Available'
         p.text-success #{val.status}
@@ -31,10 +30,10 @@ block content
         a(href=val.url) #{val._id}
  
     else
-      p There are no copies of this book in the library.
+      p There are no copies of this opinion in the library.
 
     hr
     p
-      a(href=book.url+'/delete') Delete Book
+      a(href=opinion.url+'/delete') Delete Opinion
     p
-      a(href=book.url+'/update') Update Book
+      a(href=opinion.url+'/update') Update Opinion

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  h1 Role: #{role.name}
+  
+  div(style='margin-left:20px;margin-top:20px')
+
+    h4 Users
+    
+    dl
+      each user in role_user
+        dt 
+          a(href=user.url) #{user.login}
+
+      else
+        p This role has no user
